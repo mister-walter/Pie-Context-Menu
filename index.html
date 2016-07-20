@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Pie-context-menu by cevherkarakoc</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>Pie-context-menu</h1>
+        <h2></h2>
+        <a href="https://github.com/cevherkarakoc/Pie-Context-Menu" class="button"><small>View project on</small> GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>
+<a id="pie-context-menu" class="anchor" href="#pie-context-menu" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Pie Context Menu</h1>
+
+<p><img src="https://raw.githubusercontent.com/cevherkarakoc/Pie-Context-Menu/master/images/demo2.gif?token=AFriOzz1gsKLFzAwpdPkhFBTmMrlYFgcks5XmOfMwA%3D%3D" alt="alt text" title=" Demo Gif "></p>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
+
+<hr>
+
+<p><strong>1- HTML:</strong></p>
+
+<ul>
+<li>Download <code>pie-cm.min.js</code> and <code>pie-cm.min.cs</code> files.
+Include them in your HTML</li>
+</ul>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>./dist/pie-cm.min.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;
+&lt;<span class="pl-ent">link</span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>./src/pie-cm.min.css<span class="pl-pds">"</span></span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>stylesheet<span class="pl-pds">"</span></span> /&gt;</pre></div>
+
+<ul>
+<li>Add right clickable items</li>
+</ul>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;... class="menuable" ...&gt; ITEM 1 &lt;/...&gt;
+&lt;... class="menuable" ...&gt; ITEM 2 &lt;/...&gt;</pre></div>
+
+<p><strong>2- JavaScript:</strong></p>
+
+<ul>
+<li>Create Menu</li>
+</ul>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> my_menu <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">PieContextMenu</span>({
+    menuID<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">"</span>my_menu<span class="pl-pds">"</span></span>,
+    menuItemClass<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">"</span>menuable<span class="pl-pds">"</span></span>,
+    menuSize<span class="pl-k">:</span><span class="pl-c1">220</span>
+});</pre></div>
+
+<ul>
+<li>Create Menu Button</li>
+</ul>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-smi">my_menu</span>.<span class="pl-en">addButton</span>(<span class="pl-s"><span class="pl-pds">"</span>Delete<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>fa-trash<span class="pl-pds">"</span></span>);</pre></div>
+
+<ul>
+<li>Add Event Listener to Button</li>
+</ul>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-smi">my_menu</span>.<span class="pl-smi">buttons</span>[<span class="pl-c1">0</span>].<span class="pl-smi">element</span>.<span class="pl-en">addEventListener</span>(<span class="pl-s"><span class="pl-pds">"</span>click<span class="pl-pds">"</span></span>,myFunc,<span class="pl-c1">false</span>);</pre></div>
+
+<h2>
+<a id="customize" class="anchor" href="#customize" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Customize</h2>
+
+<hr>
+
+<p><img src="https://raw.githubusercontent.com/cevherkarakoc/Pie-Context-Menu/master/images/colorful.PNG?token=AFriO9t2YjCZSe2lLhSlLpFS1hIc0tpNks5XmOeIwA%3D%3D" alt="alt text" title=" Colorful Sample "></p>
+
+<div class="highlight highlight-source-css"><pre><span class="pl-e">.pie-context-menu</span> circle<span class="pl-e">.pcm_center</span>{
+    <span class="pl-c1"><span class="pl-c1">fill</span></span>:<span class="pl-c1">#80BD9E</span>;
+}
+
+<span class="pl-e">.pie-context-menu</span> circle<span class="pl-e">.pcm_button</span>{
+    <span class="pl-c1">stroke</span>:<span class="pl-c1">#FFB85F</span>;
+}
+
+<span class="pl-e">.pie-context-menu</span> circle<span class="pl-e">.pcm_button--hover</span>{
+    <span class="pl-c1">stroke</span>: <span class="pl-c1">#FF7A5A</span>;
+}
+
+<span class="pl-e">.pie-context-menu</span> text<span class="pl-e">.pcm_title</span>{
+    <span class="pl-c1"><span class="pl-c1">fill</span></span>:<span class="pl-c1">white</span>;
+}
+
+<span class="pl-e">.pie-context-menu</span> text<span class="pl-e">.pcm_icon</span>{
+    <span class="pl-c1"><span class="pl-c1">fill</span></span>:<span class="pl-c1">white</span>;
+    <span class="pl-c1"><span class="pl-c1">font-size</span></span>:<span class="pl-c1">32<span class="pl-k">px</span></span>;
+}
+
+<span class="pl-e">.pie-context-menu</span> text<span class="pl-e">.pcm_icon--hover</span>{
+    <span class="pl-c1"><span class="pl-c1">fill</span></span>:<span class="pl-c1">#763626</span>;
+}</pre></div>
+
+<h2>
+<a id="useful-methods" class="anchor" href="#useful-methods" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Useful Methods</h2>
+
+<hr>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-smi">my_menu</span>.<span class="pl-c1">resize</span>(<span class="pl-c1">300</span>) <span class="pl-c">//resize the menu;</span>
+
+<span class="pl-smi">my_menu</span>.<span class="pl-smi">openMenu</span> <span class="pl-c">//open the menu;</span>
+<span class="pl-smi">my_menu</span>.<span class="pl-smi">closeMenu</span> <span class="pl-c">//close the menu;</span>
+
+<span class="pl-smi">my_menu</span>.<span class="pl-smi">buttons</span>[index].<span class="pl-en">changeText</span>(<span class="pl-s"><span class="pl-pds">"</span>NEW TEXT<span class="pl-pds">"</span></span>);
+<span class="pl-smi">my_menu</span>.<span class="pl-smi">buttons</span>[index].<span class="pl-en">changeIcon</span>(<span class="pl-s"><span class="pl-pds">"</span>fa-new<span class="pl-pds">"</span></span>);
+
+</pre></div>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
+
+<hr>
+
+<h3>
+<a id="licensed-under-gplv3" class="anchor" href="#licensed-under-gplv3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Licensed under GPLv3</h3>
+
+<p><img src="https://www.gnu.org/graphics/gplv3-127x51.png" alt="alt text" title=" GPLv3 "></p>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/cevherkarakoc/Pie-Context-Menu/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/cevherkarakoc/Pie-Context-Menu/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/cevherkarakoc/Pie-Context-Menu"></a> is maintained by <a href="https://github.com/cevherkarakoc">cevherkarakoc</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>
